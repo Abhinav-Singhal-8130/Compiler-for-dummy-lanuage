@@ -1,0 +1,42 @@
+
+
+program		::= {statement} .
+
+statement	::= {formula TERM} .
+TERM		::= ";" .
+
+
+formula		::= IF formula THEN formula ELSE formula | subFormulaOne .
+
+subFormulaOne	::= subFormulaOne IMPLIES subFormulaOne | subFormulaTwo .
+
+subFormulaTwo	::= subFormulaTwo binop subFormulaTwo | subFormulaThree .
+
+subFormulaThree	::= NOT subFormulaThree | subFormulaFour .
+
+subFormulaFour	::= LPAREN formula RPAREN | CONST | ID .
+
+
+
+CONST		::= "TRUE" | "FALSE" .
+NOT			::= "NOT" .
+
+binop		::= AND | OR | XOR | EQUALS .
+AND			::= "AND" .
+OR 			::= "OR" .
+XOR			::= "XOR" .
+EQUALS		::= "EQUALS" .
+
+IMPLIES		::= "IMPLIES" .
+IF 			::= "IF" .
+THEN		::= "THEN" .
+ELSE 		::= "ELSE" .
+LPAREN		::= "(" .
+RPAREN		::= ")" .
+
+
+ID 			::= {alpha} .
+
+alpha	::=  “A” | “B” | “C” | “D” | “E” | “F” | “G” | “H” | “I” | “J” | “K” | “L” | “M” | “N” | “O” | “P” | “Q” | “R” | “S” | “T” | “U” | “V” | “W” | “X” | “Y” | “Z” |“a” | “b” | “c” | “d” | “e” | “f” | “g” | “h” | “i” | “j” | “k” | “l” | “m” | “n” | “o” | “p” | “q” | “r” | “s” | “t” | “u” | “v” | “w” | “x” | “y” | “z” .
+
+
